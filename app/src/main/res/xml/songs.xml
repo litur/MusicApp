@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <song name="1">
+        <title>Scar Tissue</title>
+        <artist>Red Hot Chili Peppers</artist>
+        <album>Californication</album>
+        <duration>312</duration>
+    </song>
+    <song name="2">
+        <title>Otherside</title>
+        <artist>Red Hot Chili Peppers</artist>
+        <album>Californication</album>
+        <duration>312</duration>
+    </song>
+    <song name="3">
+        <title>November Rain</title>
+        <artist>Guns'n'Roses</artist>
+        <album>User Your Illusion Vol. 1</album>
+        <duration>434</duration>
+    </song>
+</resources>

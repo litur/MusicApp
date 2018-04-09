@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="question5_values">
+        <item>""</item>
+        <item>Pippo1</item>
+        <item>Pippo2</item>
+        <item>Pippo3</item>
+    </string-array>
+
+</resources>

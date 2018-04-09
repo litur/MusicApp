@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MusicApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Artists</string>
+    <string name="title_notifications">Albums</string>
+    <string name="title_activity_current_song">Now listenting</string>
+    <string name="songs">Songs</string>
+    <string name="albums">Albums</string>
+</resources>
