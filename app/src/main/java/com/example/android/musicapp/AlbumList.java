@@ -20,7 +20,10 @@ public class AlbumList extends ArrayList {
 
         albumArrayList.add(new Album("Californication", R.drawable.californication));
         albumArrayList.add(new Album("Metallica", R.drawable.metallica));
-        albumArrayList.add(new Album("Mellon Collie and the Infinite Sadness", R.drawable.metallica));
+        albumArrayList.add(new Album("Mellon Collie and the Infinite Sadness", R.drawable.mellon_collie));
+        albumArrayList.add(new Album("Automatic for the People", R.drawable.automatic));
+        albumArrayList.add(new Album("Wish You Were Here", R.drawable.wishyouwerehere));
+        albumArrayList.add(new Album("Mesmerize", R.drawable.mesmerize));
     }
 
     /**

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -53,15 +52,27 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         // Get the {@link Album} object located at this position in the list
         Album currentAlbum = getItem(position);
 
-
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
         ImageView iconView = listItemView.findViewById(R.id.AlbumCoverImageView);
-        // Get the image resource ID from the current AndroidFlavor object and
+        // Get the image resource ID from the current Album object and
         // set the image to iconView
         iconView.setImageResource(currentAlbum.getAlbumCoverID());
 
-        // Return the whole list item layout (containing 2 TextViews)
-        // so that it can be shown in the ListView
+        // Set a click listener on that Album Image Button
+        iconView.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the Album Image is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link AlbumDetailActivity}
+                Intent albumDetailIntent = new Intent(getContext(), AlbumDetailActivity.class);
+                albumDetailIntent.putExtra("AlbumID", position);
+                getContext().startActivity(albumDetailIntent);
+            }
+        });
+
+
+        // Return the whole list item layout
+        // so that it can be shown in the GridView
         return listItemView;
     }
 

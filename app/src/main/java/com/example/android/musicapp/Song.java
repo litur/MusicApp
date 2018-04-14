@@ -19,8 +19,6 @@ public class Song {
     // Artist of the Song
     private String mArtist;
 
-    // Album to which the Song belongs
-    private String mAlbum;
 
     // ID of the Album to which the Song belongs
     private int mAlbumID;
@@ -29,11 +27,10 @@ public class Song {
     /**
      * Constructs a new Song with values for tile, Artist, Album, AlbumID and duration
      */
-    public Song(String Title, String Artist, String Album, int AlbumID, int duration) {
+    public Song(String Title, String Artist, int AlbumID, int duration) {
 
         mTitle = Title;
         mArtist = Artist;
-        mAlbum = Album;
         mAlbumID = AlbumID;
         mDuration = duration;
 
@@ -58,13 +55,6 @@ public class Song {
      */
     public String getArtist() {
         return mArtist;
-    }
-
-    /**
-     * Gets the title of the Album in which the song is contained
-     */
-    public String getAlbum() {
-        return mAlbum;
     }
 
     /**

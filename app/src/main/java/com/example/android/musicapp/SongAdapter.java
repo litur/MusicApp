@@ -77,7 +77,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
         // Finds the TextView for the Album title and sets the value
         TextView albumTextView = listItemView.findViewById(R.id.album_textview);
-        albumTextView.setText(currentSong.getAlbum());
+        albumTextView.setText(MainActivity.mAlbums.getTitle(currentSong.getAlbumID()));
 
         // Finds the TextView for the duration of the Song  and sets the value
         TextView durationTextView = listItemView.findViewById(R.id.duration_text_view);
@@ -92,23 +92,14 @@ public class SongAdapter extends ArrayAdapter<Song> {
             // The code in this method will be executed when the Play Button is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link NumbersActivity}
+                // Create a new intent to open the {@link CurrentSongActivity}
                 Intent playIntent = new Intent(getContext(), CurrentSongActivity.class);
                 playIntent.putExtra("SongID", mySong);
                 getContext().startActivity(playIntent);
             }
         });
 
-
-        /**
-         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
-         ImageView iconView = (ImageView) listItemView.findViewById(R.id.miwok_imageView);
-         // Get the image resource ID from the current AndroidFlavor object and
-         // set the image to iconView
-         iconView.setImageResource(currentSong.getImageResourceId());
-         */
-
-        // Return the whole list item layout (containing 2 TextViews)
+        // Return the whole list item layout
         // so that it can be shown in the ListView
         return listItemView;
     }

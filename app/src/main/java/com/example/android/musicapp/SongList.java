@@ -18,10 +18,33 @@ public class SongList extends ArrayList {
 
     public SongList() {
 
-        songArrayList.add(new Song("Scar Tissue", "Red Hot Chili Peppers", "Californication", 0, 312));
-        songArrayList.add(new Song("Otherside", "Red Hot Chili Peppers", "Californication", 0, 243));
-        songArrayList.add(new Song("Enter Sandman", "Metallica", "Metallica", 1, 389));
-        songArrayList.add(new Song("Zero", "The Smashing Pumpkins", "Mellon Collie and the Infinite Sadness", 2, 155));
+        songArrayList.add(new Song("Scar Tissue", "Red Hot Chili Peppers", 0, 312));
+        songArrayList.add(new Song("Otherside", "Red Hot Chili Peppers", 0, 243));
+        songArrayList.add(new Song("Enter Sandman", "Metallica", 1, 389));
+        songArrayList.add(new Song("Zero", "The Smashing Pumpkins", 2, 160));
+        songArrayList.add(new Song("Bullet with Butterfly Wings", "The Smashing Pumpkins", 2, 258));
+        songArrayList.add(new Song("Drive", "R.E.M.", 3, 269));
+        songArrayList.add(new Song("Sweetness Follows", "R.E.M.", 3, 260));
+        songArrayList.add(new Song("Wish You were here", "Pink Floyd", 4, 340));
+        songArrayList.add(new Song("Question!", "System of a Down", 5, 201));
+    }
+
+    /**
+     * Gets an ArrayList of Songs belonging to a specific Album
+     * params @myAlbumID the ID of  the Album of which we want to retrieve the songs
+     */
+    public ArrayList<Song> getAlbumSongs(int myAlbumID) {
+
+        ArrayList<Song> albumSongArrayList = new ArrayList<Song>();
+
+        // Cycles through the songArrayList
+        // If it finds a song belonging to the Album, the song is added to the AlbumSongArrayList
+        for (int i = 0; i < songArrayList.size(); i++) {
+            if (songArrayList.get(i).getAlbumID() == myAlbumID) {
+                albumSongArrayList.add(songArrayList.get(i));
+            }
+        }
+        return albumSongArrayList;
     }
 
     /**
@@ -43,13 +66,6 @@ public class SongList extends ArrayList {
      */
     public String getArtist(int i) {
         return songArrayList.get(i).getArtist();
-    }
-
-    /**
-     * Gets the title of the Album of the i Song in the SongList
-     */
-    public String getAlbum(int i) {
-        return songArrayList.get(i).getAlbum();
     }
 
     /**
