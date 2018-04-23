@@ -13,16 +13,26 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import static com.example.android.musicapp.Utility.showToast;
+
 public class CurrentSongActivity extends AppCompatActivity {
+
+    public boolean isSongPlaying;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        isSongPlaying = false;
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_current_song);
 
+        // recovering the instance state
+        if (savedInstanceState != null) {
+            isSongPlaying = savedInstanceState.getBoolean("ISSONGPLAYING");
+        }
+
         // Sets the Toolbar as Action Bar
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
         // Defines custom behaviour on the Action Bar
@@ -39,12 +49,12 @@ public class CurrentSongActivity extends AppCompatActivity {
         TextView artistTextView = findViewById(R.id.artist_text_view);
         ImageView albumCoverImageView = findViewById(R.id.album_cover_image_view);
 
-        titleTextView.setText(MainActivity.mSongs.getTitle(index));
-        artistTextView.setText(MainActivity.mSongs.getArtist(index));
-        albumCoverImageView.setImageResource(MainActivity.mAlbums.getAlbumCoverID(MainActivity.mSongs.getAlbumID(index)));
+        titleTextView.setText(SplashActivity.MSONGS.getTitle(index));
+        artistTextView.setText(SplashActivity.MSONGS.getArtist(index));
+        albumCoverImageView.setImageResource(SplashActivity.MALBUMS.getAlbumCoverID(SplashActivity.MSONGS.getAlbumID(index)));
 
         // sets an intent on the Image to call the AlbumDetailActivity for the specific Album
-        final int albumId = MainActivity.mSongs.getAlbumID(index);
+        final int albumId = SplashActivity.MSONGS.getAlbumID(index);
 
         // Set a click listener on that Album Image Button
         albumCoverImageView.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +75,9 @@ public class CurrentSongActivity extends AppCompatActivity {
         ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
         albumCoverImageView.setColorFilter(filter);
 
+
         //Defines actions for the bottom navigation menu
-        BottomNavigationItemView SongsView = findViewById(R.id.navigation_home);
+        BottomNavigationItemView SongsView = findViewById(R.id.navigation_songs);
         assert SongsView != null;
         SongsView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +87,7 @@ public class CurrentSongActivity extends AppCompatActivity {
             }
         });
 
-        BottomNavigationItemView AlbumView = findViewById(R.id.navigation_notifications);
+        BottomNavigationItemView AlbumView = findViewById(R.id.navigation_albums);
         assert AlbumView != null;
         AlbumView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +96,13 @@ public class CurrentSongActivity extends AppCompatActivity {
                 startActivity(albumsIntent);
             }
         });
+
+        // Displays a toastMessage with the name and artist of the Song  Virtually played.
+        // It's a mockup for a function to actually play the Song
+        if (!isSongPlaying) {
+            isSongPlaying = true;
+            showToast(getString(R.string.currently_playing, SplashActivity.MSONGS.getTitle(index), SplashActivity.MSONGS.getArtist(index)), this);
+        }
     }
 
     // create an action bar button
@@ -94,8 +112,12 @@ public class CurrentSongActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    //TODO completare comportamento preferiti
-    //TODO mettere barriera in layout item della list view delle Songs
-    //TODO mettere un pulsante Play
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save some infos to prevent them to be lost when the device switches between landscape and portrait
+        savedInstanceState.putBoolean("ISSONGPLAYING", isSongPlaying);
 
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
 }

@@ -18,8 +18,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-    public static SongList mSongs = new SongList();
-    public static AlbumList mAlbums = new AlbumList();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -27,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_songs:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_albums:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
@@ -48,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        ArrayList<Song> songs = mSongs.getList();
+        // Recovers the songs data from the SongList and sets the ListView
+        ArrayList<Song> songs = SplashActivity.MSONGS.getList();
 
         SongAdapter adapter = new SongAdapter(this, songs);
 
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         // Sets the Toolbar as Action Bar
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
         // Defines custom behaviour on the Action Bar
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Defines actions for the bottom navigation menu
-        BottomNavigationItemView AlbumView = findViewById(R.id.navigation_notifications);
+        BottomNavigationItemView AlbumView = findViewById(R.id.navigation_albums);
         assert AlbumView != null;
         AlbumView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +77,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
 }
 

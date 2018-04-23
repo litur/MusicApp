@@ -7,6 +7,9 @@ package com.example.android.musicapp;
 
 public class Album {
 
+    // ID of the Album
+    private int mID;
+
     // title
     private String mAlbumTitle;
 
@@ -16,11 +19,19 @@ public class Album {
     /**
      * Constructs a new Album with values for tile and resource for the Album Cover
      */
-    public Album(String Title, int AlbumCover) {
+    public Album(int ID, String Title, int AlbumCover) {
 
+        mID = ID;
         mAlbumTitle = Title;
         mAlbumCover = AlbumCover;
 
+    }
+
+    /**
+     * Gets the ID of the Album
+     */
+    public int getID() {
+        return mID;
     }
 
     /**

@@ -21,6 +21,7 @@
         app:menu="@menu/action_bar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+    <!-- ScrollView which contains the actual content of the View -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content" />
     </ScrollView>
 
+    <!-- Bottom Navigation Menu -->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="0dp"

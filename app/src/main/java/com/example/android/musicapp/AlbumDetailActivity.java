@@ -20,7 +20,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_album_detail);
 
         // Sets the Toolbar as Action Bar
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
         // recovers the AlbumId from the calling Activity
@@ -30,13 +30,13 @@ public class AlbumDetailActivity extends AppCompatActivity {
         // Defines custom behaviour on the Action Bar
         ActionBar myActionBar = getSupportActionBar();
         assert myActionBar != null;
-        myActionBar.setTitle(MainActivity.mAlbums.getTitle(index));
+        myActionBar.setTitle(SplashActivity.MALBUMS.getTitle(index));
 
         //Sets the Cover Image in the dedicated ImageView
         ImageView albumCover = findViewById(R.id.album_cover_image);
-        albumCover.setImageResource(MainActivity.mAlbums.getAlbumCoverID(index));
+        albumCover.setImageResource(SplashActivity.MALBUMS.getAlbumCoverID(index));
 
-        ArrayList<Song> songs = MainActivity.mSongs.getAlbumSongs(index);
+        ArrayList<Song> songs = SplashActivity.MSONGS.getAlbumSongs(index);
 
         SongAdapter adapter = new SongAdapter(this, songs);
 
@@ -45,7 +45,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         //Defines actions for the bottom navigation menu
-        BottomNavigationItemView SongsView = findViewById(R.id.navigation_home);
+        BottomNavigationItemView SongsView = findViewById(R.id.navigation_songs);
         assert SongsView != null;
         SongsView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +55,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
             }
         });
 
-        BottomNavigationItemView AlbumView = findViewById(R.id.navigation_notifications);
+        BottomNavigationItemView AlbumView = findViewById(R.id.navigation_albums);
         assert AlbumView != null;
         AlbumView.setOnClickListener(new View.OnClickListener() {
             @Override

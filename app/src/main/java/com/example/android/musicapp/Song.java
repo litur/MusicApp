@@ -11,7 +11,7 @@ public class Song {
     private String mTitle;
 
     //id
-    private String mid;
+    private int mID;
 
     // duration of the song in seconds
     private int mDuration;
@@ -27,15 +27,21 @@ public class Song {
     /**
      * Constructs a new Song with values for tile, Artist, Album, AlbumID and duration
      */
-    public Song(String Title, String Artist, int AlbumID, int duration) {
+    public Song(int ID, String Title, String Artist, int AlbumID, int duration) {
 
+        mID = ID;
         mTitle = Title;
         mArtist = Artist;
         mAlbumID = AlbumID;
         mDuration = duration;
-
     }
 
+    /**
+     * Gets the id of the Song
+     */
+    public int getID() {
+        return mID;
+    }
     /**
      * Gets the title of the Song
      */

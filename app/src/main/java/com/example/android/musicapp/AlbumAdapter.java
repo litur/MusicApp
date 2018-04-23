@@ -49,6 +49,8 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
                     R.layout.grid_item_album, parent, false);
         }
 
+        final int myAlbum;
+
         // Get the {@link Album} object located at this position in the list
         Album currentAlbum = getItem(position);
 
@@ -58,6 +60,8 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         // set the image to iconView
         iconView.setImageResource(currentAlbum.getAlbumCoverID());
 
+        myAlbum = currentAlbum.getID();
+
         // Set a click listener on that Album Image Button
         iconView.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the Album Image is clicked on.
@@ -65,7 +69,7 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
             public void onClick(View view) {
                 // Create a new intent to open the {@link AlbumDetailActivity}
                 Intent albumDetailIntent = new Intent(getContext(), AlbumDetailActivity.class);
-                albumDetailIntent.putExtra("AlbumID", position);
+                albumDetailIntent.putExtra("AlbumID", myAlbum);
                 getContext().startActivity(albumDetailIntent);
             }
         });

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">MusicApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Artists</string>
@@ -8,4 +8,8 @@
     <string name="title_activity_albums">My albums</string>
     <string name="songs">Songs</string>
     <string name="albums">Albums</string>
+    <string name="currently_playing"><xliff:g example="Californication" id="song">%s </xliff:g> by <xliff:g example="The Rolling Stones" id="artist">%s </xliff:g> is currently playing </string>
+    <string name="favorite">Favorite</string>
+    <string name="settings">Settings</string>
+    <string name="album_cover">Album Cover</string>
 </resources>

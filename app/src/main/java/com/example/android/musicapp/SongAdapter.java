@@ -55,7 +55,6 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
         final int mySong;
 
-
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
         if (listItemView == null) {
@@ -63,13 +62,12 @@ public class SongAdapter extends ArrayAdapter<Song> {
                     R.layout.list_item_songs, parent, false);
         }
 
-        // Get the {@link Song} object located at this position in the list
+        // Gets the {@link Song} object located at this position in the list
         Song currentSong = getItem(position);
 
         // Finds the TextView for the Song title and sets the value
         TextView titleTextView = listItemView.findViewById(R.id.title_text_view);
         titleTextView.setText(currentSong.getTitle());
-
 
         // Finds the TextView for the Artist and sets the value
         TextView artistTextView = listItemView.findViewById(R.id.artist_text_view);
@@ -77,7 +75,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
         // Finds the TextView for the Album title and sets the value
         TextView albumTextView = listItemView.findViewById(R.id.album_textview);
-        albumTextView.setText(MainActivity.mAlbums.getTitle(currentSong.getAlbumID()));
+        albumTextView.setText(SplashActivity.MALBUMS.getTitle(currentSong.getAlbumID()));
 
         // Finds the TextView for the duration of the Song  and sets the value
         TextView durationTextView = listItemView.findViewById(R.id.duration_text_view);
@@ -85,7 +83,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
         ImageView playButton = listItemView.findViewById(R.id.play_imageView);
 
-        mySong = position;
+        mySong = currentSong.getID();
 
         // Set a click listener on that Play Button
         playButton.setOnClickListener(new View.OnClickListener() {

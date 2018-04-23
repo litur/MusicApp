@@ -8,10 +8,11 @@
     tools:context="com.example.android.musicapp.CurrentSongActivity"
     tools:showIn="@layout/activity_current_song">
 
+    <!-- Album Cover -->
     <ImageView
         android:id="@+id/album_cover_image_view"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,13 +20,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/californication" />
 
+    <!-- Song title -->
     <TextView
         android:id="@+id/title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary_dark"
         android:paddingLeft="8dp"
-        android:text="TextView"
         android:textAppearance="@android:style/TextAppearance.Material.Display2"
         android:textColor="@color/accent"
         android:textStyle="bold"
@@ -33,6 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Scar Tissue" />
 
+    <!-- Artist -->
     <TextView
         android:id="@+id/artist_text_view"
         android:layout_width="match_parent"
@@ -40,7 +42,6 @@
         android:background="@color/primary_dark"
         android:paddingBottom="8dp"
         android:paddingLeft="8dp"
-        android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/accent"
         app:layout_constraintBottom_toBottomOf="@+id/album_cover_image_view"

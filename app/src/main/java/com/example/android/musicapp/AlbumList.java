@@ -18,12 +18,12 @@ public class AlbumList extends ArrayList {
     //We create an ArrayList of Album Objects
     public AlbumList() {
 
-        albumArrayList.add(new Album("Californication", R.drawable.californication));
-        albumArrayList.add(new Album("Metallica", R.drawable.metallica));
-        albumArrayList.add(new Album("Mellon Collie and the Infinite Sadness", R.drawable.mellon_collie));
-        albumArrayList.add(new Album("Automatic for the People", R.drawable.automatic));
-        albumArrayList.add(new Album("Wish You Were Here", R.drawable.wishyouwerehere));
-        albumArrayList.add(new Album("Mesmerize", R.drawable.mesmerize));
+        albumArrayList.add(new Album(0, "Californication", R.drawable.californication));
+        albumArrayList.add(new Album(1, "Metallica", R.drawable.metallica));
+        albumArrayList.add(new Album(2, "Mellon Collie and the Infinite Sadness", R.drawable.mellon_collie));
+        albumArrayList.add(new Album(3, "Automatic for the People", R.drawable.automatic));
+        albumArrayList.add(new Album(4, "Wish You Were Here", R.drawable.wishyouwerehere));
+        albumArrayList.add(new Album(5, "Mesmerize", R.drawable.mesmerize));
     }
 
     /**

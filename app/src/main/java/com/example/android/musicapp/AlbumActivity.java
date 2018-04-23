@@ -18,7 +18,8 @@ public class AlbumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
 
-        ArrayList<Album> albums = MainActivity.mAlbums.getList();
+        // Recovers the album data from the AlbumList and sets the gridView
+        ArrayList<Album> albums = SplashActivity.MALBUMS.getList();
 
         AlbumAdapter adapter = new AlbumAdapter(this, albums);
 
@@ -27,7 +28,8 @@ public class AlbumActivity extends AppCompatActivity {
         gridView.setAdapter(adapter);
 
         // Sets the Toolbar as Action Bar
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        //myToolbar.getBackground().setAlpha(50);
         setSupportActionBar(myToolbar);
 
         // Defines custom behaviour on the Action Bar
@@ -36,7 +38,7 @@ public class AlbumActivity extends AppCompatActivity {
         myActionBar.setTitle(R.string.title_activity_albums);
 
         //Defines actions for the bottom navigation menu
-        BottomNavigationItemView SongsView = findViewById(R.id.navigation_home);
+        BottomNavigationItemView SongsView = findViewById(R.id.navigation_songs);
         assert SongsView != null;
         SongsView.setOnClickListener(new View.OnClickListener() {
             @Override
