@@ -6,8 +6,8 @@ import android.os.Bundle;
 
 public class SplashActivity extends AppCompatActivity {
 
-    // Initialize the SongList and AlbumList used throughout the whole application
-    // Since, for the scope of the app, we don't need to modify them they are declared as final
+    // Initializes the SongList and AlbumList used throughout the whole application
+    // Since we don't need to modify them for the scope of the app, they are declared as final
     public static final SongList MSONGS = new SongList();
     public static final AlbumList MALBUMS = new AlbumList();
 

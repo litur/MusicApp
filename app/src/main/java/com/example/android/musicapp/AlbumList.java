@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class AlbumList extends ArrayList {
 
-
     private ArrayList<Album> albumArrayList;
 
     {
@@ -16,7 +15,7 @@ public class AlbumList extends ArrayList {
     }
 
     //We create an ArrayList of Album Objects
-    public AlbumList() {
+    AlbumList() {
 
         albumArrayList.add(new Album(0, "Californication", R.drawable.californication));
         albumArrayList.add(new Album(1, "Metallica", R.drawable.metallica));
@@ -41,7 +40,7 @@ public class AlbumList extends ArrayList {
     }
 
     /**
-     * Gets the cover ID  of the i Album in the AlbumList
+     * Gets the cover ID of the i Album in the AlbumList
      */
     public int getAlbumCoverID(int i) {
         return albumArrayList.get(i).getAlbumCoverID();

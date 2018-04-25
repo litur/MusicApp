@@ -2,7 +2,7 @@ package com.example.android.musicapp;
 
 /**
  * Created by RutiglianoL on 05/04/2018.
- * Represents an Album of Song
+ * Represents an Album of Songs
  */
 
 public class Album {
@@ -17,7 +17,7 @@ public class Album {
     private int mAlbumCover;
 
     /**
-     * Constructs a new Album with values for tile and resource for the Album Cover
+     * Constructs a new Album with values for ID, tile and resource for the Album Cover
      */
     public Album(int ID, String Title, int AlbumCover) {
 

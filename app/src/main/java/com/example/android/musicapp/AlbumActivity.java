@@ -29,7 +29,6 @@ public class AlbumActivity extends AppCompatActivity {
 
         // Sets the Toolbar as Action Bar
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
-        //myToolbar.getBackground().setAlpha(50);
         setSupportActionBar(myToolbar);
 
         // Defines custom behaviour on the Action Bar

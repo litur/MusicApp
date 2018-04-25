@@ -30,12 +30,13 @@ public class AlbumDetailActivity extends AppCompatActivity {
         // Defines custom behaviour on the Action Bar
         ActionBar myActionBar = getSupportActionBar();
         assert myActionBar != null;
-        myActionBar.setTitle(SplashActivity.MALBUMS.getTitle(index));
+        myActionBar.setTitle("Album - " + SplashActivity.MALBUMS.getTitle(index));
 
         //Sets the Cover Image in the dedicated ImageView
         ImageView albumCover = findViewById(R.id.album_cover_image);
         albumCover.setImageResource(SplashActivity.MALBUMS.getAlbumCoverID(index));
 
+        // Recovers the songs data from the SongList and sets the ListView
         ArrayList<Song> songs = SplashActivity.MSONGS.getAlbumSongs(index);
 
         SongAdapter adapter = new SongAdapter(this, songs);

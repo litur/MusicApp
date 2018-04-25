@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class AlbumAdapter extends ArrayAdapter<Album> {
 
-    public AlbumAdapter(Activity context, ArrayList<Album> Album) {
+    AlbumAdapter(Activity context, ArrayList<Album> Album) {
 
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
@@ -54,10 +54,11 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         // Get the {@link Album} object located at this position in the list
         Album currentAlbum = getItem(position);
 
-        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
+        // Find the ImageView in the grid_item_album.xml layout with the ID AlbumCoverImageView
         ImageView iconView = listItemView.findViewById(R.id.AlbumCoverImageView);
         // Get the image resource ID from the current Album object and
         // set the image to iconView
+        assert currentAlbum != null;
         iconView.setImageResource(currentAlbum.getAlbumCoverID());
 
         myAlbum = currentAlbum.getID();
@@ -73,7 +74,6 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
                 getContext().startActivity(albumDetailIntent);
             }
         });
-
 
         // Return the whole list item layout
         // so that it can be shown in the GridView
