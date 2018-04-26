@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CurrentSongActivity" />
+        <!-- To manually handle the change of the screen orientation to prevent the Activity to be restarted -->
+        <activity
+            android:name=".CurrentSongActivity"
+            android:configChanges="orientation|screenSize" />
         <activity android:name=".AlbumActivity" />
         <activity android:name=".AlbumDetailActivity" />
         <activity android:name=".SplashActivity">

@@ -19,21 +19,23 @@ public class Song {
     // Artist of the Song
     private String mArtist;
 
-
     // ID of the Album to which the Song belongs
     private int mAlbumID;
 
+    // ID of the Raw source ID of the audio file associated to the Song
+    private int mRawID;
 
     /**
      * Constructs a new Song with values for tile, Artist, Album, AlbumID and duration
      */
-    public Song(int ID, String Title, String Artist, int AlbumID, int duration) {
+    public Song(int ID, String Title, String Artist, int AlbumID, int duration, int RawID) {
 
         mID = ID;
         mTitle = Title;
         mArtist = Artist;
         mAlbumID = AlbumID;
         mDuration = duration;
+        mRawID = RawID;
     }
 
     /**
@@ -70,5 +72,11 @@ public class Song {
         return mAlbumID;
     }
 
+    /**
+     * Gets the ID of the Raw file associated to the Song
+     */
+    public int getRawID() {
+        return mRawID;
+    }
 
 }
